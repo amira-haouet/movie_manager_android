@@ -29,7 +29,7 @@
                 android:layout_gravity="center_vertical"
                 android:id="@+id/img1"
                 app:civ_border_width="2dp"
-                app:civ_border_color="#FF000000"
+                app:civ_border_color="@color/white"
                 />
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -43,11 +43,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Title"
-                    android:textColor="@color/teal_700"
+                    android:textColor="@color/white"
                     android:textSize="23sp"
                     android:textStyle="bold" />
                 <TextView
-                    android:id="@+id/modele"
+                    android:id="@+id/genre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"

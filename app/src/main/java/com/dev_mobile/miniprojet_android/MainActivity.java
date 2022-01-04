@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener myDateSetListener;
     ImageView calendar;
     EditText titre;
-    EditText t2,t3;
+    EditText t2,genre;
     TextView date;
     Button annuler,add_submit;
     CircleImageView img;
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         titre=findViewById(R.id.titre);
         t2=findViewById(R.id.t2);
-        t3=findViewById(R.id.t3);
+        genre=findViewById(R.id.genre);
         img=(CircleImageView)findViewById(R.id.img);
 
         browse=(Button)findViewById(R.id.browse);
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 titre.setText("");
                 t2.setText("");
-                t3.setText("");
+                genre.setText("");
             }
         });
 
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
         titre=findViewById(R.id.titre);
         t2=findViewById(R.id.t2);
-        t3=findViewById(R.id.t3);
+        genre=findViewById(R.id.genre);
 
 
         FirebaseStorage storage=FirebaseStorage.getInstance();
@@ -164,9 +164,9 @@ public class MainActivity extends AppCompatActivity {
 
                                 dialog.dismiss();
                                 FirebaseDatabase db=FirebaseDatabase.getInstance();
-                                DatabaseReference root=db.getReference("Movie");
+                                DatabaseReference root=db.getReference("movie");
                                 String _id = root .push().getKey();
-                                Movie q=new Movie(_id,titre.getText().toString(),t3.getText().toString(),valueOf(t2.getText().toString()),uri.toString());
+                                Movie q=new Movie(_id,titre.getText().toString(),genre.getText().toString(),valueOf(t2.getText().toString()),uri.toString());
                                 root.child(_id).setValue(q);
 
 

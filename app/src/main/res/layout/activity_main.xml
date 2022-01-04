@@ -46,7 +46,7 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/t3"
+        android:id="@+id/genre"
         android:textSize="15sp"
         android:hint="genre"
         android:layout_marginTop="30dp"

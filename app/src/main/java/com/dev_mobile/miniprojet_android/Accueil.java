@@ -29,7 +29,7 @@ public class Accueil extends AppCompatActivity {
         recview.setLayoutManager(new LinearLayoutManager(this));
         FirebaseRecyclerOptions<Movie> options =
                 new FirebaseRecyclerOptions.Builder<Movie>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Movie"), Movie.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("movie"), Movie.class)
                         .build();
 
         adapter=new myadapter(options,getApplicationContext());
@@ -125,7 +125,7 @@ public class Accueil extends AppCompatActivity {
     {
         FirebaseRecyclerOptions<Movie> options =
                 new FirebaseRecyclerOptions.Builder<Movie>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Movie").orderByChild("titre").startAt(s).endAt(s+"\uf8ff"), Movie.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("movie").orderByChild("marque").startAt(s).endAt(s+"\uf8ff"), Movie.class)
                         .build();
 
         adapter=new myadapter(options,getApplicationContext());

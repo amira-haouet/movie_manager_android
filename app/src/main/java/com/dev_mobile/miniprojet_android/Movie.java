@@ -3,7 +3,7 @@ package com.dev_mobile.miniprojet_android;
 public class Movie {
     private String id;
     private String titre;
-    private String modele;
+    private String genre;
     private Double prix;
    // private String MiseEnCirculation;
     private String pimage;
@@ -14,10 +14,10 @@ public class Movie {
 
 
 
-    public Movie(String id, String titre, String modele, Double prix,String pimage) {
+    public Movie(String id, String titre, String genre, Double prix,String pimage) {
         this.id = id;
         this.titre= titre;
-        this.modele= modele;
+        this.genre= genre;
         this.prix= prix;
        // this.MiseEnCirculation= MiseEnCirculation;
         this.pimage= pimage;
@@ -28,12 +28,12 @@ public class Movie {
         return id;
     }
 
-    public String getMarque() {
+    public String getTitre() {
         return titre;
     }
 
-    public String getModele() {
-        return modele;
+    public String getGenre() {
+        return genre;
     }
 
     public Double getPrix() {
@@ -52,21 +52,19 @@ public class Movie {
         this.id = id;
     }
 
-    public void setMarque(String titre) {
+    public void setTitre(String titre) {
         this.titre = titre;
     }
 
 
-    public void setModele(String modele) {
-        this.modele = modele;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
     public void setPrix(Double prix) {
         this.prix = prix;
     }
 
-    /*public void setMiseEnCirculation(String miseEnCirculation) {
-        MiseEnCirculation = miseEnCirculation;
-    }*/
+ 
 
     public void setPimage(String pimage) {
         this.pimage = pimage;

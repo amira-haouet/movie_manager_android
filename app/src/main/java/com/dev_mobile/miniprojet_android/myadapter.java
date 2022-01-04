@@ -36,8 +36,8 @@ public class myadapter extends FirebaseRecyclerAdapter<Movie,myadapter.myviewhol
 
 
 
-        holder.titre.setText(m.getMarque());
-        holder.modele.setText(m.getModele());
+        holder.titre.setText(m.getTitre());
+        holder.genre.setText(m.getGenre());
         holder.prix.setText(m.getPrix().toString());
         Glide.with(holder.img.getContext()).load(m.getPimage()).into(holder.img);
 
@@ -54,8 +54,8 @@ public class myadapter extends FirebaseRecyclerAdapter<Movie,myadapter.myviewhol
                 Intent j = new Intent(context, MovieUpdate.class);
                 j.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 j.putExtra("id",m.getId());
-                j.putExtra("titre",m.getMarque());
-                j.putExtra("modele",m.getModele());
+                j.putExtra("titre",m.getTitre());
+                j.putExtra("genre",m.getGenre());
                 j.putExtra("prix",m.getPrix());
                 j.putExtra("image",m.getPimage());
 
@@ -75,7 +75,7 @@ public class myadapter extends FirebaseRecyclerAdapter<Movie,myadapter.myviewhol
                 builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference().child("Movie")
+                        FirebaseDatabase.getInstance().getReference().child("movie")
                                 .child(getRef(position).getKey()).removeValue();
                     }
                 });
@@ -110,14 +110,14 @@ public class myadapter extends FirebaseRecyclerAdapter<Movie,myadapter.myviewhol
         ImageView calendar;
         CircleImageView img;
         ImageView edit,delete;
-        TextView titre,prix,modele,date;
+        TextView titre,prix,genre,date;
 
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
             img=(CircleImageView)itemView.findViewById(R.id.img1);
             titre=(TextView)itemView.findViewById(R.id.titre);
-            modele=(TextView)itemView.findViewById(R.id.modele);
+            genre=(TextView)itemView.findViewById(R.id.genre);
             prix=(TextView)itemView.findViewById(R.id.prix);
             edit=(ImageView)itemView.findViewById(R.id.editicon);
             delete=(ImageView)itemView.findViewById(R.id.deleteicon);

@@ -43,7 +43,7 @@ public class MovieUpdate extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener myDateSetListener;
     ImageView calendar;
     CircleImageView image;
-    TextView date,titre,modele,prix,img;
+    TextView date,titre,genre,prix,img;
     Button submit,browse;
     DatabaseReference reference;
     String id;
@@ -92,12 +92,12 @@ public class MovieUpdate extends AppCompatActivity {
 
         id =getIntent().getStringExtra("id");
 
-        reference= FirebaseDatabase.getInstance().getReference("Movie");
+        reference= FirebaseDatabase.getInstance().getReference("movie");
 
         titre=findViewById(R.id.titre);
         titre.setText(getIntent().getStringExtra("titre"));
-        modele=findViewById(R.id.modele);
-        modele.setText(getIntent().getStringExtra("modele"));
+        genre=findViewById(R.id.genre);
+        genre.setText(getIntent().getStringExtra("genre"));
 
         prix=findViewById(R.id.prix);
         prix.setText(valueOf(getIntent().getDoubleExtra("prix",0.0)));
@@ -169,8 +169,8 @@ public class MovieUpdate extends AppCompatActivity {
                                 dialog.dismiss();
                                 uriimg2=uri;
                                 FirebaseDatabase db=FirebaseDatabase.getInstance();
-                                DatabaseReference root=db.getReference("Movie");
-                                Movie q=new Movie(id,titre.getText().toString(),modele.getText().toString(), Double.valueOf(prix.getText().toString()),uriimg2.toString());
+                                DatabaseReference root=db.getReference("movie");
+                                Movie q=new Movie(id,titre.getText().toString(),genre.getText().toString(), Double.valueOf(prix.getText().toString()),uriimg2.toString());
                                 reference.child(id).setValue(q);
                                 Toast.makeText(getApplicationContext(),"sucess updated ",Toast.LENGTH_LONG).show();
                                 Intent j = new Intent(getApplicationContext(),Accueil.class);
