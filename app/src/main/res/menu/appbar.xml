@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <item
+            android:id="@+id/home"
+
+            android:title="Home">
+
+        </item>
+
+        <item
+            android:id="@+id/geocalisation"
+            android:icon="@mipmap/ic_launcher_round"
+            android:title="Geocalisation"
+            app:showAsAction="ifRoom"></item>
+        <item
+            android:id="@+id/position"
+            android:title="position info">
+
+
+        </item>
+
+        <item
+            android:id="@+id/logout"
+            android:title="Logout">
+
+        </item>
+    </menu>
