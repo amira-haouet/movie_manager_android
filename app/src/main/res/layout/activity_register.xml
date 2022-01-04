@@ -7,22 +7,7 @@
     android:background="@drawable/bg"
     tools:context=".Register">
 
-<!--
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/icon2"
-        android:layout_marginTop="-55dp"
-        android:layout_marginRight="30dp"/>
 
--->
 
     <ImageView
         android:id="@+id/imageView"
@@ -100,10 +85,11 @@
             android:layout_width="129dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@color/purple"
+            android:background="@drawable/textborder"
             android:padding="10dp"
             android:onClick="signuphere"
             android:text="Sign up"
+            android:textStyle="bold"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_marginTop="40dp"

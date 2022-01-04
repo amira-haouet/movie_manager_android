@@ -7,6 +7,6 @@
         />
     <corners android:radius="20dp"></corners>
     <gradient
-        android:startColor="@color/btnbgcolor"
-        android:endColor="@color/btnbgcolor" android:type="linear"></gradient>
+        android:startColor="@color/green"
+        android:endColor="@color/green" android:type="linear"></gradient>
 </shape>

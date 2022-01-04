@@ -4,119 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
     android:background="@color/gris"
-    >
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
 
-      <de.hdodenhof.circleimageview.CircleImageView
-          android:layout_width="200dp"
-          android:layout_height="200dp"
-          android:id="@+id/img"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
 
-          android:layout_marginTop="10dp"
-          android:src="@drawable/sss"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/sss"
 
-         >
+        >
 
-      </de.hdodenhof.circleimageview.CircleImageView>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/browse"
-            android:layout_marginTop="20dp"
-            android:text="Upload your image"
-            android:textColor="@color/white"
-            android:background="@drawable/design"
-
-            />
-
-
-
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/titre"
-        android:textSize="15sp"
-        android:hint="movie title"
-        android:layout_marginTop="30dp"
-        android:textColor="#000"/>
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/genre"
-        android:textSize="15sp"
-        android:hint="genre"
-        android:layout_marginTop="30dp"
-        android:textColor="#000"/>
-
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/t2"
-        android:textSize="15sp"
-        android:hint="Prix ticket"
-        android:layout_marginTop="30dp"
-        android:textColor="#000"/>
-
-
-
-<!--
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/calendar"
-            android:layout_width="70dp"
-            android:layout_height="60dp"
-            android:clickable="true"
-            app:srcCompat="@drawable/oo"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="15dp"/>
-
-        <TextView
-            android:id="@+id/dater"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:paddingLeft="30dp"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            android:layout_marginTop="15dp"/>
-    </LinearLayout>
-
-
--->
+    </de.hdodenhof.circleimageview.CircleImageView>
 
     <Button
+        android:id="@+id/browse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:id="@+id/add_submit"
-        android:background="@color/green"
-        android:onClick="uploadtofirebase"
-        android:textColor="@color/black"
-        android:text="ADD"
-        android:layout_marginRight ="80dp"
+        android:background="@drawable/textborder"
+        android:text="Upload your image"
+        android:textColor="@color/white"
+
         />
 
+
+    <EditText
+        android:id="@+id/titre"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="movie title"
+        android:textColor="#000"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/genre"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="genre"
+        android:textColor="#000"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/t2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="Prix ticket"
+        android:textColor="#000"
+        android:textSize="15sp" />
+
+
     <Button
+        android:id="@+id/add_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/addbut"
+        android:onClick="uploadtofirebase"
+        android:text="ADD"
+
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/annuler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="-48dp"
-        android:id="@+id/annuler"
-        android:background="@color/red"
+        android:layout_marginRight="-80dp"
+        android:background="@drawable/textborder"
         android:onClick="process"
-        android:textColor="@color/black"
         android:text="CLEAR"
-        android:layout_marginRight ="-80dp"
-        />
-
-
+        android:textColor="@color/white" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
