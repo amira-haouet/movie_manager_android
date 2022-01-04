@@ -141,14 +141,12 @@ public class MainActivity extends AppCompatActivity {
     private void uploadtofirebase()
     {
         final ProgressDialog dialog=new ProgressDialog(this);
-        dialog.setTitle("Téléchargeur d'image");
+        dialog.setTitle(" Uploader ");
         dialog.show();
 
         t1=findViewById(R.id.t1);
         t2=findViewById(R.id.t2);
         t3=findViewById(R.id.t3);
-       // date = findViewById(R.id.dater);
-        //roll=(EditText)findViewById(R.id.t4);
 
 
         FirebaseStorage storage=FirebaseStorage.getInstance();
@@ -186,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onProgress(UploadTask.TaskSnapshot taskSnapshot)
                     {
                         float percent=(100*taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
-                        dialog.setMessage("Téléchargement :"+(int)percent+" %");
+                        dialog.setMessage("Upload  :"+(int)percent+" %");
                     }
                 });
 
