@@ -43,7 +43,7 @@ public class MovieUpdate extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener myDateSetListener;
     ImageView calendar;
     CircleImageView image;
-    TextView date,nom,modele,prix,img;
+    TextView date,titre,modele,prix,img;
     Button submit,browse;
     DatabaseReference reference;
     String id;
@@ -94,8 +94,8 @@ public class MovieUpdate extends AppCompatActivity {
 
         reference= FirebaseDatabase.getInstance().getReference("Movie");
 
-        nom=findViewById(R.id.nom);
-        nom.setText(getIntent().getStringExtra("marque"));
+        titre=findViewById(R.id.titre);
+        titre.setText(getIntent().getStringExtra("titre"));
         modele=findViewById(R.id.modele);
         modele.setText(getIntent().getStringExtra("modele"));
 
@@ -109,32 +109,9 @@ public class MovieUpdate extends AppCompatActivity {
         image=findViewById(R.id.img);
         Picasso.get().load(getIntent().getStringExtra("image")).into(image);
 
-        calendar=(ImageView)findViewById(R.id.calendar);
-        date = findViewById(R.id.dater);
 
-/*        calendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar cal = Calendar.getInstance();
-                int year=cal.get(Calendar.YEAR);
-                int month=cal.get(Calendar.MONTH);
-                int day=cal.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog =new DatePickerDialog(
-                        ModiferQuad.this,
-                        android.R.style.Theme_Holo_Dialog_MinWidth,
-                        myDateSetListener,year,month,day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-            }});
-        myDateSetListener=new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month +=1;
-                String date2 = dayOfMonth + "/" + month + "/" + year;
-                date.setText(date2);
-            }
-        };*/
+
 
         submit=findViewById(R.id.usubmit);
         submit.setOnClickListener(new View.OnClickListener() {
@@ -193,7 +170,7 @@ public class MovieUpdate extends AppCompatActivity {
                                 uriimg2=uri;
                                 FirebaseDatabase db=FirebaseDatabase.getInstance();
                                 DatabaseReference root=db.getReference("Movie");
-                                Movie q=new Movie(id,nom.getText().toString(),modele.getText().toString(), Double.valueOf(prix.getText().toString()),uriimg2.toString());
+                                Movie q=new Movie(id,titre.getText().toString(),modele.getText().toString(), Double.valueOf(prix.getText().toString()),uriimg2.toString());
                                 reference.child(id).setValue(q);
                                 Toast.makeText(getApplicationContext(),"sucess updated ",Toast.LENGTH_LONG).show();
                                 Intent j = new Intent(getApplicationContext(),Accueil.class);

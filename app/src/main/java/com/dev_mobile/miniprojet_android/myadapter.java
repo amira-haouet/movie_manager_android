@@ -36,7 +36,7 @@ public class myadapter extends FirebaseRecyclerAdapter<Movie,myadapter.myviewhol
 
 
 
-        holder.nom.setText(m.getMarque());
+        holder.titre.setText(m.getMarque());
         holder.modele.setText(m.getModele());
         holder.prix.setText(m.getPrix().toString());
         Glide.with(holder.img.getContext()).load(m.getPimage()).into(holder.img);
@@ -54,7 +54,7 @@ public class myadapter extends FirebaseRecyclerAdapter<Movie,myadapter.myviewhol
                 Intent j = new Intent(context, MovieUpdate.class);
                 j.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 j.putExtra("id",m.getId());
-                j.putExtra("marque",m.getMarque());
+                j.putExtra("titre",m.getMarque());
                 j.putExtra("modele",m.getModele());
                 j.putExtra("prix",m.getPrix());
                 j.putExtra("image",m.getPimage());
@@ -110,13 +110,13 @@ public class myadapter extends FirebaseRecyclerAdapter<Movie,myadapter.myviewhol
         ImageView calendar;
         CircleImageView img;
         ImageView edit,delete;
-        TextView nom,prix,modele,date;
+        TextView titre,prix,modele,date;
 
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
             img=(CircleImageView)itemView.findViewById(R.id.img1);
-            nom=(TextView)itemView.findViewById(R.id.nom);
+            titre=(TextView)itemView.findViewById(R.id.titre);
             modele=(TextView)itemView.findViewById(R.id.modele);
             prix=(TextView)itemView.findViewById(R.id.prix);
             edit=(ImageView)itemView.findViewById(R.id.editicon);

@@ -47,7 +47,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainActivity extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener myDateSetListener;
     ImageView calendar;
-    EditText t1;
+    EditText titre;
     EditText t2,t3;
     TextView date;
     Button annuler,add_submit;
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        t1=findViewById(R.id.t1);
+        titre=findViewById(R.id.titre);
         t2=findViewById(R.id.t2);
         t3=findViewById(R.id.t3);
         img=(CircleImageView)findViewById(R.id.img);
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         annuler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                t1.setText("");
+                titre.setText("");
                 t2.setText("");
                 t3.setText("");
             }
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.setTitle(" Uploader ");
         dialog.show();
 
-        t1=findViewById(R.id.t1);
+        titre=findViewById(R.id.titre);
         t2=findViewById(R.id.t2);
         t3=findViewById(R.id.t3);
 
@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
                                 FirebaseDatabase db=FirebaseDatabase.getInstance();
                                 DatabaseReference root=db.getReference("Movie");
                                 String _id = root .push().getKey();
-                                Movie q=new Movie(_id,t1.getText().toString(),t3.getText().toString(),valueOf(t2.getText().toString()),uri.toString());
+                                Movie q=new Movie(_id,titre.getText().toString(),t3.getText().toString(),valueOf(t2.getText().toString()),uri.toString());
                                 root.child(_id).setValue(q);
 
 
