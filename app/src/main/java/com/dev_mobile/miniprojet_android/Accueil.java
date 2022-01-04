@@ -67,7 +67,6 @@ public class Accueil extends AppCompatActivity {
                 break;
 
 
-            //case R.id.quitte: finish();
         }
 
         Intent j = new Intent(getApplicationContext(),Map.class);
@@ -78,7 +77,6 @@ public class Accueil extends AppCompatActivity {
                 break;
 
 
-            //case R.id.quitte: finish();
         }
 
         Intent k = new Intent(getApplicationContext(),login.class);
@@ -91,7 +89,6 @@ public class Accueil extends AppCompatActivity {
                 break;
 
 
-            //case R.id.quitte: finish();
         }
 
 

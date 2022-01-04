@@ -100,7 +100,7 @@
         android:background="@color/green"
         android:onClick="uploadtofirebase"
         android:textColor="@color/black"
-        android:text="Ajouter"
+        android:text="ADD"
         android:layout_marginRight ="80dp"
         />
 
@@ -112,7 +112,7 @@
         android:background="@color/red"
         android:onClick="process"
         android:textColor="@color/black"
-        android:text="Annuler"
+        android:text="CLEAR"
         android:layout_marginRight ="-80dp"
         />
 

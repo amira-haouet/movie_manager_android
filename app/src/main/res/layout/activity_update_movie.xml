@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-   android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Marque :"
+        android:text="Title :"
         android:textColor="@color/purple"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -47,7 +47,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Marque"
+        android:hint="titre"
         android:id="@+id/nom"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Modèle :"
+        android:text="Genre :"
         android:textColor="@color/purple"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -74,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Prix :"
+        android:text="Prix Ticket :"
         android:textColor="@color/purple"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -104,4 +104,4 @@
         android:layout_marginBottom="3dp"
         />
 
-</ScrollView>
+</LinearLayout>

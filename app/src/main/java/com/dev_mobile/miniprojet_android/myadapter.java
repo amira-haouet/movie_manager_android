@@ -121,6 +121,8 @@ public class myadapter extends FirebaseRecyclerAdapter<Movie,myadapter.myviewhol
             prix=(TextView)itemView.findViewById(R.id.prix);
             edit=(ImageView)itemView.findViewById(R.id.editicon);
             delete=(ImageView)itemView.findViewById(R.id.deleteicon);
+           // calendar=(ImageView)itemView.findViewById(R.id.calendar);
+           // date = (TextView)itemView.findViewById(R.id.dater);
 
 
 
