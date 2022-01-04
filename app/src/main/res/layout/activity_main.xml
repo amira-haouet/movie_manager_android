@@ -62,16 +62,7 @@
         android:textColor="#000"/>
 
 
-    <TextView
-        android:id="@+id/date_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Date de la mise en circulation :"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:layout_marginLeft="-46dp"
-        android:textStyle="bold"/>
+
 <!--
     <LinearLayout
         android:layout_width="match_parent"

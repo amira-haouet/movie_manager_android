@@ -71,13 +71,13 @@ public class myadapter extends FirebaseRecyclerAdapter<Quad,myadapter.myviewhold
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(holder.img.getContext());
-                builder.setTitle("Supprimer quad");
-                builder.setMessage("Etes-vous sûr ?");
+                builder.setTitle("want delete?");
+                builder.setMessage("sure?");
 
                 builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference().child("quad")
+                        FirebaseDatabase.getInstance().getReference().child("movie")
                                 .child(getRef(position).getKey()).removeValue();
                     }
                 });

@@ -106,8 +106,8 @@ public class ModiferQuad extends AppCompatActivity {
         prix=findViewById(R.id.prix);
         prix.setText(valueOf(getIntent().getDoubleExtra("prix",0.0)));
 
-        date=findViewById(R.id.dater);
-        date.setText(getIntent().getStringExtra("date"));
+      //  date=findViewById(R.id.dater);
+       // date.setText(getIntent().getStringExtra("date"));
 
         img=findViewById(R.id.uimgurl);
         //img.setText(getIntent().getStringExtra("image"));
@@ -118,7 +118,7 @@ public class ModiferQuad extends AppCompatActivity {
         calendar=(ImageView)findViewById(R.id.calendar);
         date = findViewById(R.id.dater);
 
-        calendar.setOnClickListener(new View.OnClickListener() {
+/*        calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
@@ -140,7 +140,7 @@ public class ModiferQuad extends AppCompatActivity {
                 String date2 = dayOfMonth + "/" + month + "/" + year;
                 date.setText(date2);
             }
-        };
+        };*/
 
         submit=findViewById(R.id.usubmit);
         submit.setOnClickListener(new View.OnClickListener() {
@@ -177,7 +177,7 @@ public class ModiferQuad extends AppCompatActivity {
 
 
         final ProgressDialog dialog=new ProgressDialog(this);
-        dialog.setTitle("Téléchargeur d'image");
+        dialog.setTitle("uploader image");
         dialog.show();
 
 
@@ -201,7 +201,7 @@ public class ModiferQuad extends AppCompatActivity {
                                 DatabaseReference root=db.getReference("quad");
                                 Quad q=new Quad(id,nom.getText().toString(),modele.getText().toString(), Double.valueOf(prix.getText().toString()),uriimg2.toString());
                                 reference.child(id).setValue(q);
-                                Toast.makeText(getApplicationContext(),"Quad modifié avec succès",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"sucess updated ",Toast.LENGTH_LONG).show();
                                 Intent j = new Intent(getApplicationContext(),Accueil.class);
                                 startActivity(j);
 

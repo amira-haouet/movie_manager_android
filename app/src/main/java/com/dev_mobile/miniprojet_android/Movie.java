@@ -1,6 +1,6 @@
 package com.dev_mobile.miniprojet_android;
 
-public class Quad {
+public class Movie {
     private String id;
     private String marque;
     private String modele;
@@ -9,12 +9,12 @@ public class Quad {
     private String pimage;
 
 
-    public Quad() {
+    public Movie() {
     }
 
 
 
-    public Quad(String id, String marque, String modele, Double prix,String pimage) {
+    public Movie(String id, String marque, String modele, Double prix,String pimage) {
         this.id = id;
         this.marque= marque;
         this.modele= modele;

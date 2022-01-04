@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
         t1=findViewById(R.id.t1);
         t2=findViewById(R.id.t2);
         t3=findViewById(R.id.t3);
-        date = findViewById(R.id.dater);
+       // date = findViewById(R.id.dater);
         //roll=(EditText)findViewById(R.id.t4);
 
 
@@ -204,9 +204,9 @@ public class MainActivity extends AppCompatActivity {
 
                                 dialog.dismiss();
                                 FirebaseDatabase db=FirebaseDatabase.getInstance();
-                                DatabaseReference root=db.getReference("quad");
+                                DatabaseReference root=db.getReference("Movie");
                                 String _id = root .push().getKey();
-                                Quad q=new Quad(_id,t1.getText().toString(),t3.getText().toString(),valueOf(t2.getText().toString()),uri.toString());
+                                Movie q=new Movie(_id,t1.getText().toString(),t3.getText().toString(),valueOf(t2.getText().toString()),uri.toString());
                                 root.child(_id).setValue(q);
 
 
