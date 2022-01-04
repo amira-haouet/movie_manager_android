@@ -83,7 +83,7 @@
             android:layout_width="129dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@color/pistache"
+            android:background="@color/purple"
             android:padding="10dp"
             android:onClick="signuphere"
             android:text="Envoyer"

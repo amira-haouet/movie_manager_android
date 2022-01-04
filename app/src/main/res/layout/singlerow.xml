@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="This is Demo Name"
-                    android:textColor="@color/pistache1"
+                    android:textColor="@color/purple"
                     android:textSize="20sp"
                   />
 

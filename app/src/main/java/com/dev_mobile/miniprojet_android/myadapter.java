@@ -39,7 +39,7 @@ public class myadapter extends FirebaseRecyclerAdapter<Quad,myadapter.myviewhold
         holder.nom.setText(quad.getMarque());
         holder.modele.setText(quad.getModele());
         holder.prix.setText(quad.getPrix().toString());
-        holder.miseencir.setText(quad.getMiseEnCirculation());
+     //   holder.miseencir.setText(quad.getMiseEnCirculation());
         Glide.with(holder.img.getContext()).load(quad.getPimage()).into(holder.img);
 
 
@@ -58,7 +58,7 @@ public class myadapter extends FirebaseRecyclerAdapter<Quad,myadapter.myviewhold
                 j.putExtra("marque",quad.getMarque());
                 j.putExtra("modele",quad.getModele());
                 j.putExtra("prix",quad.getPrix());
-                j.putExtra("date",quad.getMiseEnCirculation());
+              //  j.putExtra("date",quad.getMiseEnCirculation());
                 j.putExtra("image",quad.getPimage());
 
                 context.startActivity(j);
@@ -121,7 +121,7 @@ public class myadapter extends FirebaseRecyclerAdapter<Quad,myadapter.myviewhold
             nom=(TextView)itemView.findViewById(R.id.nom);
             modele=(TextView)itemView.findViewById(R.id.modele);
             prix=(TextView)itemView.findViewById(R.id.prix);
-            miseencir=(TextView)itemView.findViewById(R.id.miseencir);
+          //  miseencir=(TextView)itemView.findViewById(R.id.miseencir);
             edit=(ImageView)itemView.findViewById(R.id.editicon);
             delete=(ImageView)itemView.findViewById(R.id.deleteicon);
             calendar=(ImageView)itemView.findViewById(R.id.calendar);

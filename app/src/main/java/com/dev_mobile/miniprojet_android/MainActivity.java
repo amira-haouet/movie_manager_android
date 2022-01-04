@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                                 img.setImageResource(R.drawable.sss);
-                                Toast.makeText(getApplicationContext(),"Quad ajouté avec succès",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"movie added",Toast.LENGTH_LONG).show();
                                 Intent j = new Intent(getApplicationContext(),Accueil.class);
                                 startActivity(j);
                             }

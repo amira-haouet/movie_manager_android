@@ -23,18 +23,7 @@ public class Accueil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
-       // getSupportActionBar().setTitle(Html.fromHtml("<front color=\"red\">" +getString(R.string.app_name) + "</font>"));
-        //button = findViewById(R.id.nouveau);
-/*
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-            }
 
-        });
-*/
 
         recview=findViewById(R.id.recview);
         recview.setLayoutManager(new LinearLayoutManager(this));

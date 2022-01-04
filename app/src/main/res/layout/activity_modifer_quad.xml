@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Marque :"
-        android:textColor="@color/pistache"
+        android:textColor="@color/purple"
         android:textSize="15dp"
         android:textStyle="bold"
         />
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Modèle :"
-        android:textColor="@color/pistache"
+        android:textColor="@color/purple"
         android:textSize="15dp"
         android:textStyle="bold"
         />
@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Prix :"
-        android:textColor="@color/pistache"
+        android:textColor="@color/purple"
         android:textSize="15dp"
         android:textStyle="bold"
         />
@@ -93,7 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Date de la mise en circulation :"
-        android:textColor="@color/pistache"
+        android:textColor="@color/purple"
         android:textSize="15dp"
 
         android:textStyle="bold"/>

@@ -5,7 +5,7 @@ public class Quad {
     private String marque;
     private String modele;
     private Double prix;
-    private String MiseEnCirculation;
+   // private String MiseEnCirculation;
     private String pimage;
 
 
@@ -19,12 +19,20 @@ public class Quad {
         this.marque= marque;
         this.modele= modele;
         this.prix= prix;
-        this.MiseEnCirculation= MiseEnCirculation;
+       // this.MiseEnCirculation= MiseEnCirculation;
         this.pimage= pimage;
 
     }
+   /* public Quad(String id, String marque, String modele, Double prix, String MiseEnCirculation,String pimage) {
+        this.id = id;
+        this.marque= marque;
+        this.modele= modele;
+        this.prix= prix;
+        // this.MiseEnCirculation= MiseEnCirculation;
+        this.pimage= pimage;
 
-
+    }
+*/
     public String getId() {
         return id;
     }
@@ -41,10 +49,10 @@ public class Quad {
         return prix;
     }
 
-    public String getMiseEnCirculation() {
+   /* public String getMiseEnCirculation() {
         return MiseEnCirculation;
     }
-
+*/
     public String getPimage() {
         return pimage;
     }
@@ -64,9 +72,9 @@ public class Quad {
         this.prix = prix;
     }
 
-    public void setMiseEnCirculation(String miseEnCirculation) {
+    /*public void setMiseEnCirculation(String miseEnCirculation) {
         MiseEnCirculation = miseEnCirculation;
-    }
+    }*/
 
     public void setPimage(String pimage) {
         this.pimage = pimage;

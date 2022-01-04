@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Editer Quad"
-        android:background="@color/pistache"
+        android:background="@color/purple"
         android:textSize="25sp"
         android:gravity="center"
         android:textColor="@color/white"/>

@@ -7,8 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="gris">#BFC1BF</color>
-    <color name="pistache">#44CA44</color>
-    <color name="pistache1">#39B139</color>
+<color name="purple">#771ECF</color>
+    <color name="pistache">#C599F1</color>
+
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#009688</color>
     <color name="bordercolor">#2196F3</color>
