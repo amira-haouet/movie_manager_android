@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="15dp"
+
+        >
 
 
         <LinearLayout
@@ -40,8 +42,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="This is Demo Name"
-                    android:textColor="#000"
+                    android:text="Title"
+                    android:textColor="@color/teal_700"
                     android:textSize="23sp"
                     android:textStyle="bold" />
                 <TextView
@@ -49,8 +51,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="This is Demo Name"
-                    android:textColor="@color/purple"
+                    android:text="genre"
+                    android:textColor="#000"
                     android:textSize="20sp"
                   />
 
@@ -59,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="This is Course Name"
+                    android:text="price"
                     android:textColor="#000"
                     android:textSize="20sp" />
 
