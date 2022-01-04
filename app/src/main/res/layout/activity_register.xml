@@ -7,7 +7,7 @@
     android:background="@drawable/bg"
     tools:context=".Register">
 
-
+<!--
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="350dp"
@@ -21,13 +21,30 @@
         app:srcCompat="@drawable/icon2"
         android:layout_marginTop="-55dp"
         android:layout_marginRight="30dp"/>
+
+-->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="141dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="-55dp"
+        android:layout_marginRight="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.316"
+        app:srcCompat="@drawable/tv" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="44dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Inscrivez-vous ici"
+        android:text="Sign UP !"
         android:textSize="30sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -54,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:hint="Votre Email"
-            android:textColorHint="@color/bordercolor">
+            android:textColorHint="@color/gris">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -70,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:hint="Votre Mot de passe"
-            android:textColorHint="@color/bordercolor"
+            android:textColorHint="@color/gris"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -86,8 +103,8 @@
             android:background="@color/purple"
             android:padding="10dp"
             android:onClick="signuphere"
-            android:text="Envoyer"
-            android:textColor="#000"
+            android:text="Sign up"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_marginTop="40dp"
             android:fontFamily="sans-serif-condensed"

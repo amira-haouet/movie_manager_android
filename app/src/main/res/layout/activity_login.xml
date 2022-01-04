@@ -40,8 +40,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Votre Email"
-            android:textColorHint="@color/bordercolor">
+            android:hint="haouet@exemple.com"
+            android:textColorHint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -55,8 +55,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Votre Mot de passe"
-            android:textColorHint="@color/bordercolor"
+            android:hint="put your password here"
+            android:textColorHint="@color/white"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -72,13 +72,17 @@
             android:layout_marginTop="35dp"
             android:layout_marginBottom="10dp"
 android:background="@color/green"
-            android:fontFamily="sans-serif-condensed"
             android:onClick="signinhere"
             android:text="sign in"
            android:textColor="@color/white"
             android:textSize="25sp"
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dont have account ?"
+            android:textColor="@color/white"></TextView>
 
     </LinearLayout>
 
@@ -86,16 +90,17 @@ android:background="@color/green"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="53dp"
+        android:layout_marginBottom="30dp"
         android:fontFamily="sans-serif-medium"
-        android:text="sign in & have fun "
-        android:textSize="30sp"
+        android:text="sign in and have fun "
         android:textColor="@color/white"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.577"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.462"
-        android:layout_marginBottom="30dp"/>
+        app:layout_constraintVertical_bias="0.428" />
 
     <ProgressBar
         android:id="@+id/progressBar3_login"
@@ -111,16 +116,20 @@ android:background="@color/green"
         app:layout_constraintVertical_bias="0.459" />
 
     <TextView
+
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:textSize="20sp"
-        android:textColor="#000"
         android:layout_height="36dp"
-        android:text="Créer un compte"
+        android:text="Creat new account now !"
         android:onClick="gotoregister"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.91" />
+        app:layout_constraintVertical_bias="0.91"
+        android:background="@drawable/textborder"
+
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
