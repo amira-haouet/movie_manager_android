@@ -48,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener myDateSetListener;
     ImageView calendar;
     EditText titre;
-    EditText t2,genre;
+    EditText t2, genre;
     TextView date;
-    Button annuler,add_submit;
+    Button annuler, add_submit;
     CircleImageView img;
     Button browse, upload;
     Uri filepath;
@@ -62,12 +62,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        titre=findViewById(R.id.titre);
-        t2=findViewById(R.id.t2);
-        genre=findViewById(R.id.genre);
-        img=(CircleImageView)findViewById(R.id.img);
+        titre = findViewById(R.id.titre);
+        t2 = findViewById(R.id.t2);
+        genre = findViewById(R.id.genre);
+        img = (CircleImageView) findViewById(R.id.img);
 
-        browse=(Button)findViewById(R.id.browse);
+        browse = (Button) findViewById(R.id.browse);
 
         browse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,11 +77,10 @@ public class MainActivity extends AppCompatActivity {
                         .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                         .withListener(new PermissionListener() {
                             @Override
-                            public void onPermissionGranted(PermissionGrantedResponse response)
-                            {
-                                Intent intent=new Intent(Intent.ACTION_PICK);
+                            public void onPermissionGranted(PermissionGrantedResponse response) {
+                                Intent intent = new Intent(Intent.ACTION_PICK);
                                 intent.setType("image/*");
-                                startActivityForResult(Intent.createChooser(intent,"Select Image File"),1);
+                                startActivityForResult(Intent.createChooser(intent, "Select Image File"), 1);
                             }
 
                             @Override
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        add_submit=findViewById(R.id.add_submit);
+        add_submit = findViewById(R.id.add_submit);
         add_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,8 +105,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-        annuler=findViewById(R.id.annuler);
+        annuler = findViewById(R.id.annuler);
         annuler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,60 +118,53 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
-    {
-        if(requestCode==1 && resultCode==RESULT_OK)
-        {
-            filepath=data.getData();
-            try
-            {
-                InputStream inputStream=getContentResolver().openInputStream(filepath);
-                bitmap= BitmapFactory.decodeStream(inputStream);
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            filepath = data.getData();
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(filepath);
+                bitmap = BitmapFactory.decodeStream(inputStream);
                 img.setImageBitmap(bitmap);
-            }catch (Exception ex)
-            {
+            } catch (Exception ex) {
 
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void uploadtofirebase()
-    {
-        final ProgressDialog dialog=new ProgressDialog(this);
+    private void uploadtofirebase() {
+        final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setTitle(" Uploader ");
         dialog.show();
 
-        titre=findViewById(R.id.titre);
-        t2=findViewById(R.id.t2);
-        genre=findViewById(R.id.genre);
+        titre = findViewById(R.id.titre);
+        t2 = findViewById(R.id.t2);
+        genre = findViewById(R.id.genre);
 
 
-        FirebaseStorage storage=FirebaseStorage.getInstance();
-        final StorageReference uploader=storage.getReference("Image1"+new Random().nextInt(50));
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        final StorageReference uploader = storage.getReference("Image1" + new Random().nextInt(50));
 
 
         uploader.putFile(filepath)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
-                    {
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         uploader.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
-                            public void onSuccess(Uri uri){
+                            public void onSuccess(Uri uri) {
 
                                 dialog.dismiss();
-                                FirebaseDatabase db=FirebaseDatabase.getInstance();
-                                DatabaseReference root=db.getReference("movie");
-                                String _id = root .push().getKey();
-                                Movie q=new Movie(_id,titre.getText().toString(),genre.getText().toString(),valueOf(t2.getText().toString()),uri.toString());
+                                FirebaseDatabase db = FirebaseDatabase.getInstance();
+                                DatabaseReference root = db.getReference("movie");
+                                String _id = root.push().getKey();
+                                Movie q = new Movie(_id, titre.getText().toString(), genre.getText().toString(), valueOf(t2.getText().toString()), uri.toString());
                                 root.child(_id).setValue(q);
 
 
-
                                 img.setImageResource(R.drawable.sss);
-                                Toast.makeText(getApplicationContext(),"movie added",Toast.LENGTH_LONG).show();
-                                Intent j = new Intent(getApplicationContext(),Accueil.class);
+                                Toast.makeText(getApplicationContext(), "movie added", Toast.LENGTH_LONG).show();
+                                Intent j = new Intent(getApplicationContext(), Accueil.class);
                                 startActivity(j);
                             }
                         });
@@ -181,15 +172,13 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
-                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot)
-                    {
-                        float percent=(100*taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
-                        dialog.setMessage("Upload  :"+(int)percent+" %");
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        float percent = (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                        dialog.setMessage("Upload  :" + (int) percent + " %");
                     }
                 });
 
     }
-
 
 
 }

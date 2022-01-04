@@ -19,24 +19,26 @@ public class Accueil extends AppCompatActivity {
     RecyclerView recview;
     myadapter adapter;
     Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
 
-        recview=findViewById(R.id.recview);
+        recview = findViewById(R.id.recview);
         recview.setLayoutManager(new LinearLayoutManager(this));
         FirebaseRecyclerOptions<Movie> options =
                 new FirebaseRecyclerOptions.Builder<Movie>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("movie"), Movie.class)
                         .build();
 
-        adapter=new myadapter(options,getApplicationContext());
+        adapter = new myadapter(options, getApplicationContext());
         recview.setAdapter(adapter);
 
 
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -48,6 +50,7 @@ public class Accueil extends AppCompatActivity {
         super.onStop();
         adapter.stopListening();
     }
+
     /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {   // Inflate the menu;
@@ -59,33 +62,36 @@ public class Accueil extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
 
-        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
 
 
         switch (item.getItemId()) {
-            case R.id.ajouter: startActivity(i);
+            case R.id.ajouter:
+                startActivity(i);
                 break;
 
 
         }
 
-        Intent j = new Intent(getApplicationContext(),Map.class);
+        Intent j = new Intent(getApplicationContext(), Map.class);
 
 
         switch (item.getItemId()) {
-            case R.id.map: startActivity(j);
+            case R.id.map:
+                startActivity(j);
                 break;
 
 
         }
 
-        Intent k = new Intent(getApplicationContext(),login.class);
+        Intent k = new Intent(getApplicationContext(), login.class);
 
 
         switch (item.getItemId()) {
 
-            case R.id.quite: startActivity(k);
-              FirebaseAuth.getInstance().signOut();
+            case R.id.quite:
+                startActivity(k);
+                FirebaseAuth.getInstance().signOut();
                 break;
 
 
@@ -96,13 +102,12 @@ public class Accueil extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.menu,menu);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
 
-        MenuItem item=menu.findItem(R.id.search);
+        MenuItem item = menu.findItem(R.id.search);
 
-        SearchView searchView=(SearchView)item.getActionView();
+        SearchView searchView = (SearchView) item.getActionView();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -121,14 +126,13 @@ public class Accueil extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    private void processsearch(String s)
-    {
+    private void processsearch(String s) {
         FirebaseRecyclerOptions<Movie> options =
                 new FirebaseRecyclerOptions.Builder<Movie>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("movie").orderByChild("titre").startAt(s).endAt(s+"\uf8ff"), Movie.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("movie").orderByChild("titre").startAt(s).endAt(s + "\uf8ff"), Movie.class)
                         .build();
 
-        adapter=new myadapter(options,getApplicationContext());
+        adapter = new myadapter(options, getApplicationContext());
         adapter.startListening();
         recview.setAdapter(adapter);
 

@@ -5,7 +5,7 @@ public class Movie {
     private String titre;
     private String genre;
     private Double prix;
-   // private String MiseEnCirculation;
+    // private String MiseEnCirculation;
     private String pimage;
 
 
@@ -13,14 +13,13 @@ public class Movie {
     }
 
 
-
-    public Movie(String id, String titre, String genre, Double prix,String pimage) {
+    public Movie(String id, String titre, String genre, Double prix, String pimage) {
         this.id = id;
-        this.titre= titre;
-        this.genre= genre;
-        this.prix= prix;
-       // this.MiseEnCirculation= MiseEnCirculation;
-        this.pimage= pimage;
+        this.titre = titre;
+        this.genre = genre;
+        this.prix = prix;
+        // this.MiseEnCirculation= MiseEnCirculation;
+        this.pimage = pimage;
 
     }
 
@@ -40,10 +39,10 @@ public class Movie {
         return prix;
     }
 
-   /* public String getMiseEnCirculation() {
-        return MiseEnCirculation;
-    }
-*/
+    /* public String getMiseEnCirculation() {
+         return MiseEnCirculation;
+     }
+ */
     public String getPimage() {
         return pimage;
     }
@@ -60,11 +59,11 @@ public class Movie {
     public void setGenre(String genre) {
         this.genre = genre;
     }
+
     public void setPrix(Double prix) {
         this.prix = prix;
     }
 
- 
 
     public void setPimage(String pimage) {
         this.pimage = pimage;

@@ -43,21 +43,22 @@ public class MovieUpdate extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener myDateSetListener;
     ImageView calendar;
     CircleImageView image;
-    TextView date,titre,genre,prix,img;
-    Button submit,browse;
+    TextView date, titre, genre, prix, img;
+    Button submit, browse;
     DatabaseReference reference;
     String id;
     Uri filepath;
-    Uri uriimg,uriimg2;
+    Uri uriimg, uriimg2;
     Bitmap bitmap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_movie);
 
-        uriimg= Uri.parse(getIntent().getStringExtra("image"));
-        uriimg2= Uri.parse(getIntent().getStringExtra("image"));
-        browse=(Button)findViewById(R.id.browse);
+        uriimg = Uri.parse(getIntent().getStringExtra("image"));
+        uriimg2 = Uri.parse(getIntent().getStringExtra("image"));
+        browse = (Button) findViewById(R.id.browse);
 
         browse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,11 +68,10 @@ public class MovieUpdate extends AppCompatActivity {
                         .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                         .withListener(new PermissionListener() {
                             @Override
-                            public void onPermissionGranted(PermissionGrantedResponse response)
-                            {
-                                Intent intent=new Intent(Intent.ACTION_PICK);
+                            public void onPermissionGranted(PermissionGrantedResponse response) {
+                                Intent intent = new Intent(Intent.ACTION_PICK);
                                 intent.setType("image/*");
-                                startActivityForResult(Intent.createChooser(intent,"Select Image File"),1);
+                                startActivityForResult(Intent.createChooser(intent, "Select Image File"), 1);
                             }
 
                             @Override
@@ -88,32 +88,27 @@ public class MovieUpdate extends AppCompatActivity {
         });
 
 
+        id = getIntent().getStringExtra("id");
 
+        reference = FirebaseDatabase.getInstance().getReference("movie");
 
-        id =getIntent().getStringExtra("id");
-
-        reference= FirebaseDatabase.getInstance().getReference("movie");
-
-        titre=findViewById(R.id.titre);
+        titre = findViewById(R.id.titre);
         titre.setText(getIntent().getStringExtra("titre"));
-        genre=findViewById(R.id.genre);
+        genre = findViewById(R.id.genre);
         genre.setText(getIntent().getStringExtra("genre"));
 
-        prix=findViewById(R.id.prix);
-        prix.setText(valueOf(getIntent().getDoubleExtra("prix",0.0)));
+        prix = findViewById(R.id.prix);
+        prix.setText(valueOf(getIntent().getDoubleExtra("prix", 0.0)));
 
 
-        img=findViewById(R.id.uimgurl);
+        img = findViewById(R.id.uimgurl);
         //img.setText(getIntent().getStringExtra("image"));
 
-        image=findViewById(R.id.img);
+        image = findViewById(R.id.img);
         Picasso.get().load(getIntent().getStringExtra("image")).into(image);
 
 
-
-
-
-        submit=findViewById(R.id.usubmit);
+        submit = findViewById(R.id.usubmit);
         submit.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -125,55 +120,47 @@ public class MovieUpdate extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
-    {
-        if(requestCode==1 && resultCode==RESULT_OK)
-        {
-            filepath=data.getData();
-            try
-            {
-                InputStream inputStream=getContentResolver().openInputStream(filepath);
-                bitmap= BitmapFactory.decodeStream(inputStream);
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            filepath = data.getData();
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(filepath);
+                bitmap = BitmapFactory.decodeStream(inputStream);
                 image.setImageBitmap(bitmap);
-            }catch (Exception ex)
-            {
+            } catch (Exception ex) {
 
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-    private void uploadtofirebase()
-    {
+
+    private void uploadtofirebase() {
 
 
-
-        final ProgressDialog dialog=new ProgressDialog(this);
+        final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setTitle("uploader image");
         dialog.show();
 
 
-
-
-        FirebaseStorage storage=FirebaseStorage.getInstance();
-        final StorageReference uploader=storage.getReference("Image1"+new Random().nextInt(50));
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        final StorageReference uploader = storage.getReference("Image1" + new Random().nextInt(50));
 
         uploader.putFile(filepath)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
-                    {
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         uploader.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
-                            public void onSuccess(Uri uri){
+                            public void onSuccess(Uri uri) {
 
                                 dialog.dismiss();
-                                uriimg2=uri;
-                                FirebaseDatabase db=FirebaseDatabase.getInstance();
-                                DatabaseReference root=db.getReference("movie");
-                                Movie q=new Movie(id,titre.getText().toString(),genre.getText().toString(), Double.valueOf(prix.getText().toString()),uriimg2.toString());
+                                uriimg2 = uri;
+                                FirebaseDatabase db = FirebaseDatabase.getInstance();
+                                DatabaseReference root = db.getReference("movie");
+                                Movie q = new Movie(id, titre.getText().toString(), genre.getText().toString(), Double.valueOf(prix.getText().toString()), uriimg2.toString());
                                 reference.child(id).setValue(q);
-                                Toast.makeText(getApplicationContext(),"sucess updated ",Toast.LENGTH_LONG).show();
-                                Intent j = new Intent(getApplicationContext(),Accueil.class);
+                                Toast.makeText(getApplicationContext(), "sucess updated ", Toast.LENGTH_LONG).show();
+                                Intent j = new Intent(getApplicationContext(), Accueil.class);
                                 startActivity(j);
 
 
@@ -183,10 +170,9 @@ public class MovieUpdate extends AppCompatActivity {
                 })
                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
-                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot)
-                    {
-                        float percent=(100*taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
-                        dialog.setMessage("upload :"+(int)percent+" %");
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        float percent = (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                        dialog.setMessage("upload :" + (int) percent + " %");
                     }
                 });
 

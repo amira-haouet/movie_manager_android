@@ -17,45 +17,44 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class login extends AppCompatActivity {
-    TextInputLayout t1,t2;
+    TextInputLayout t1, t2;
     ProgressBar bar;
     FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        t1=(TextInputLayout)findViewById(R.id.email_login);
-        t2=(TextInputLayout)findViewById(R.id.pwd_login);
-        bar=(ProgressBar)findViewById(R.id.progressBar3_login);
+        t1 = (TextInputLayout) findViewById(R.id.email_login);
+        t2 = (TextInputLayout) findViewById(R.id.pwd_login);
+        bar = (ProgressBar) findViewById(R.id.progressBar3_login);
         mAuth = FirebaseAuth.getInstance();
 
     }
-    public void signinhere(View view)
-    {
+
+    public void signinhere(View view) {
         bar.setVisibility(View.VISIBLE);
-        String email=t1.getEditText().getText().toString();
-        String password=t2.getEditText().getText().toString();
+        String email = t1.getEditText().getText().toString();
+        String password = t2.getEditText().getText().toString();
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(login.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful())
-                        {
+                        if (task.isSuccessful()) {
                             bar.setVisibility(View.INVISIBLE);
-                            Intent intent=new Intent(login.this,Accueil.class);
-                            intent.putExtra("email",mAuth.getCurrentUser().getEmail());
-                            intent.putExtra("uid",mAuth.getCurrentUser().getUid());
+                            Intent intent = new Intent(login.this, Accueil.class);
+                            intent.putExtra("email", mAuth.getCurrentUser().getEmail());
+                            intent.putExtra("uid", mAuth.getCurrentUser().getUid());
                             startActivity(intent);
-                        } else
-                        {
+                        } else {
                             bar.setVisibility(View.INVISIBLE);
                             t1.getEditText().setText("");
                             t2.getEditText().setText("");
-                            Toast.makeText(getApplicationContext(),"Invalid credentials",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_LONG).show();
                         }
 
                         // ...
@@ -63,16 +62,14 @@ public class login extends AppCompatActivity {
                 });
 
 
-
     }
-    public void gotoregister(View view)
-    {
 
-        Intent k=new Intent(getApplicationContext(),Register.class);
+    public void gotoregister(View view) {
+
+        Intent k = new Intent(getApplicationContext(), Register.class);
         startActivity(k);
 
     }
-
 
 
 }

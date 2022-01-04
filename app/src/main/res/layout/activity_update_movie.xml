@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
-
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:id="@+id/img"
 
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="110dp"
+        android:layout_marginTop="5dp"
         android:src="@drawable/sss"
 
         >
@@ -21,14 +20,14 @@
     </de.hdodenhof.circleimageview.CircleImageView>
 
     <Button
+        android:id="@+id/browse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/browse"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="140dp"
-        android:text="Choisir"
-        android:textColor="@color/black"
-        android:background="@drawable/design"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textborder"
+        android:text="Choose .."
+        android:textColor="@color/white"
 
         />
 
@@ -41,17 +40,16 @@
         android:text="Title :"
         android:textColor="@color/purple"
         android:textSize="15dp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <EditText
+        android:id="@+id/titre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="titre"
-        android:id="@+id/titre"
         android:layout_marginTop="10dp"
-        android:textSize="20sp"
-       />
+        android:hint="titre"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/modele_label"
         android:layout_width="wrap_content"
@@ -60,15 +58,16 @@
         android:text="Genre :"
         android:textColor="@color/purple"
         android:textSize="15dp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
+
     <EditText
+        android:id="@+id/genre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="genre"
-        android:id="@+id/genre"
         android:layout_marginTop="10dp"
-        android:textSize="20sp"/>
+        android:hint="genre"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/prix_label"
         android:layout_width="wrap_content"
@@ -77,31 +76,27 @@
         android:text="Prix Ticket :"
         android:textColor="@color/purple"
         android:textSize="15dp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
+
     <EditText
+        android:id="@+id/prix"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Prix"
-        android:id="@+id/prix"
         android:layout_marginTop="10dp"
-        android:textSize="20sp"/>
-
-
-
+        android:hint=" ticket"
+        android:textSize="20sp" />
 
 
     <Button
+        android:id="@+id/usubmit"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Editer"
-        android:id="@+id/usubmit"
-        android:background="@drawable/design"
-        android:textColor="@color/black"
         android:layout_gravity="center"
-        android:textSize="20sp"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="3dp"
-        />
+        android:background="@drawable/addbut"
+        android:text="click to Update"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
 </LinearLayout>

@@ -21,19 +21,16 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class myadapter extends FirebaseRecyclerAdapter<Movie,myadapter.myviewholder>
-{
+public class myadapter extends FirebaseRecyclerAdapter<Movie, myadapter.myviewholder> {
     Context context;
 
     public myadapter(@NonNull FirebaseRecyclerOptions<Movie> options, Context context) {
         super(options);
-        this.context=context;
+        this.context = context;
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myviewholder holder, @SuppressLint("RecyclerView") int position, @NonNull Movie m)
-    {
-
+    protected void onBindViewHolder(@NonNull myviewholder holder, @SuppressLint("RecyclerView") int position, @NonNull Movie m) {
 
 
         holder.titre.setText(m.getTitre());
@@ -42,33 +39,31 @@ public class myadapter extends FirebaseRecyclerAdapter<Movie,myadapter.myviewhol
         Glide.with(holder.img.getContext()).load(m.getPimage()).into(holder.img);
 
 
-
         holder.edit.setOnClickListener(new View.OnClickListener() {
 
 
+                                           @Override
+                                           public void onClick(View view) {
 
-            @Override
-            public void onClick(View view) {
 
+                                               Intent j = new Intent(context, MovieUpdate.class);
+                                               j.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                               j.putExtra("id", m.getId());
+                                               j.putExtra("titre", m.getTitre());
+                                               j.putExtra("genre", m.getGenre());
+                                               j.putExtra("prix", m.getPrix());
+                                               j.putExtra("image", m.getPimage());
 
-                Intent j = new Intent(context, MovieUpdate.class);
-                j.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                j.putExtra("id",m.getId());
-                j.putExtra("titre",m.getTitre());
-                j.putExtra("genre",m.getGenre());
-                j.putExtra("prix",m.getPrix());
-                j.putExtra("image",m.getPimage());
+                                               context.startActivity(j);
 
-                context.startActivity(j);
-
-            }
-        }
+                                           }
+                                       }
         );
 
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder=new AlertDialog.Builder(holder.img.getContext());
+                AlertDialog.Builder builder = new AlertDialog.Builder(holder.img.getContext());
                 builder.setTitle("want delete?");
                 builder.setMessage("sure?");
 
@@ -96,34 +91,30 @@ public class myadapter extends FirebaseRecyclerAdapter<Movie,myadapter.myviewhol
 
     @NonNull
     @Override
-    public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
+    public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.singlerow,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.singlerow, parent, false);
         return new myviewholder(view);
 
     }
 
-    class myviewholder extends RecyclerView.ViewHolder
-    {
+    class myviewholder extends RecyclerView.ViewHolder {
 
         ImageView calendar;
         CircleImageView img;
-        ImageView edit,delete;
-        TextView titre,prix,genre,date;
+        ImageView edit, delete;
+        TextView titre, prix, genre, date;
 
-        public myviewholder(@NonNull View itemView)
-        {
+        public myviewholder(@NonNull View itemView) {
             super(itemView);
-            img=(CircleImageView)itemView.findViewById(R.id.img1);
-            titre=(TextView)itemView.findViewById(R.id.titre);
-            genre=(TextView)itemView.findViewById(R.id.genre);
-            prix=(TextView)itemView.findViewById(R.id.prix);
-            edit=(ImageView)itemView.findViewById(R.id.editicon);
-            delete=(ImageView)itemView.findViewById(R.id.deleteicon);
-           // calendar=(ImageView)itemView.findViewById(R.id.calendar);
-           // date = (TextView)itemView.findViewById(R.id.dater);
-
+            img = (CircleImageView) itemView.findViewById(R.id.img1);
+            titre = (TextView) itemView.findViewById(R.id.titre);
+            genre = (TextView) itemView.findViewById(R.id.genre);
+            prix = (TextView) itemView.findViewById(R.id.prix);
+            edit = (ImageView) itemView.findViewById(R.id.editicon);
+            delete = (ImageView) itemView.findViewById(R.id.deleteicon);
+            // calendar=(ImageView)itemView.findViewById(R.id.calendar);
+            // date = (TextView)itemView.findViewById(R.id.dater);
 
 
         }
