@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/search"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Search Data"
+        app:showAsAction="always"
+        app:actionViewClass="android.widget.SearchView"
+
+       />
+    <item android:id="@+id/aa"
+        android:icon="@drawable/ic_baseline_more_vert_24"
+        android:title="settings"
+        app:showAsAction="ifRoom" >
+ <menu>
+    <item android:title="Ajouter quad" android:id="@+id/ajouter"
+        android:icon="@drawable/ic_baseline_add_24"
+        android:textStyle="bold">
+
+    </item>
+    <item android:textStyle="bold" android:icon="@drawable/ic_baseline_location_on_24" android:title="Ma position actuelle" android:id="@+id/map"
+        ></item>
+    <item android:textStyle="bold" android:icon="@drawable/ic_baseline_exit_to_app_24" android:title="Se déconnecter" android:id="@+id/quite"></item>
+</menu>
+    </item>
+</menu>

@@ -1,8 +1,4 @@
-package com.example.androidproject;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
+package com.dev_mobile.miniprojet_android;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +23,7 @@ public class Accueil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
-        // getSupportActionBar().setTitle(Html.fromHtml("<front color=\"red\">" +getString(R.string.app_name) + "</font>"));
+       // getSupportActionBar().setTitle(Html.fromHtml("<front color=\"red\">" +getString(R.string.app_name) + "</font>"));
         //button = findViewById(R.id.nouveau);
 /*
         button.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +98,7 @@ public class Accueil extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.quite: startActivity(k);
-                FirebaseAuth.getInstance().signOut();
+              FirebaseAuth.getInstance().signOut();
                 break;
 
 

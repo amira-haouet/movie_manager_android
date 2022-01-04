@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:id="@+id/img"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="110dp"
+        android:src="@drawable/sss"
+
+        >
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/browse"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="140dp"
+        android:text="Choisir"
+        android:textColor="@color/black"
+        android:background="@drawable/design"
+
+        />
+
+
+    <TextView
+        android:id="@+id/marque_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Marque :"
+        android:textColor="@color/pistache"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Marque"
+        android:id="@+id/nom"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+       />
+    <TextView
+        android:id="@+id/modele_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Modèle :"
+        android:textColor="@color/pistache"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Modele"
+        android:id="@+id/modele"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"/>
+    <TextView
+        android:id="@+id/prix_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Prix :"
+        android:textColor="@color/pistache"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Prix"
+        android:id="@+id/prix"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/date_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Date de la mise en circulation :"
+        android:textColor="@color/pistache"
+        android:textSize="15dp"
+
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/calendar"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/oo"
+
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/dater"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_marginTop="15dp"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Editer"
+        android:id="@+id/usubmit"
+        android:background="@drawable/design"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        />
+
+</LinearLayout>

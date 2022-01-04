@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="5dp"
-    app:cardUseCompatPadding="true">
+    android:elevation="5dp"
+    app:cardUseCompatPadding="true"
+    android:backgroundTint="@color/gris">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,14 +21,14 @@
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img1"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center_vertical"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@mipmap/ic_launcher"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/img1"
+                app:civ_border_width="2dp"
                 app:civ_border_color="#FF000000"
-                app:civ_border_width="2dp" />
-
+                />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
@@ -35,38 +36,46 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/nametext"
+                    android:id="@+id/nom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="This is Demo Name"
                     android:textColor="#000"
-                    android:textSize="25sp"
+                    android:textSize="23sp"
                     android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/modele"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="This is Demo Name"
+                    android:textColor="@color/pistache1"
+                    android:textSize="20sp"
+                  />
 
                 <TextView
-                    android:id="@+id/coursetext"
+                    android:id="@+id/prix"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="This is Course Name"
                     android:textColor="#000"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
 
 
                 <TextView
-                    android:id="@+id/emailtext"
+                    android:id="@+id/miseencir"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="This is Email Name"
                     android:textColor="#000"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -74,17 +83,23 @@
 
             <ImageView
                 android:id="@+id/editicon"
-                android:layout_width="193dp"
-                android:layout_height="40dp"
-                android:src="@drawable/common_google_signin_btn_icon_dark_focused" />
-
-            <ImageView
-                android:id="@+id/deleteicon"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:src="@drawable/common_google_signin_btn_icon_dark_normal" />
+                android:src="@drawable/edit2"
+                android:layout_marginLeft="180dp"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:id="@+id/deleteicon"
+                android:src="@drawable/trash2"
+                android:layout_marginLeft="-50dp"
+
+                />
         </LinearLayout>
     </LinearLayout>
+
 
 
 </androidx.cardview.widget.CardView>
