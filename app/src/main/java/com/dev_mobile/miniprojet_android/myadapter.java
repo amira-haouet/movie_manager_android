@@ -21,26 +21,25 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class myadapter extends FirebaseRecyclerAdapter<Quad,myadapter.myviewholder>
+public class myadapter extends FirebaseRecyclerAdapter<Movie,myadapter.myviewholder>
 {
     Context context;
 
-    public myadapter(@NonNull FirebaseRecyclerOptions<Quad> options, Context context) {
+    public myadapter(@NonNull FirebaseRecyclerOptions<Movie> options, Context context) {
         super(options);
         this.context=context;
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myviewholder holder, @SuppressLint("RecyclerView") int position, @NonNull Quad quad)
+    protected void onBindViewHolder(@NonNull myviewholder holder, @SuppressLint("RecyclerView") int position, @NonNull Movie m)
     {
 
 
 
-        holder.nom.setText(quad.getMarque());
-        holder.modele.setText(quad.getModele());
-        holder.prix.setText(quad.getPrix().toString());
-     //   holder.miseencir.setText(quad.getMiseEnCirculation());
-        Glide.with(holder.img.getContext()).load(quad.getPimage()).into(holder.img);
+        holder.nom.setText(m.getMarque());
+        holder.modele.setText(m.getModele());
+        holder.prix.setText(m.getPrix().toString());
+        Glide.with(holder.img.getContext()).load(m.getPimage()).into(holder.img);
 
 
 
@@ -52,14 +51,13 @@ public class myadapter extends FirebaseRecyclerAdapter<Quad,myadapter.myviewhold
             public void onClick(View view) {
 
 
-                Intent j = new Intent(context,ModiferQuad.class);
+                Intent j = new Intent(context, MovieUpdate.class);
                 j.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                j.putExtra("id",quad.getId());
-                j.putExtra("marque",quad.getMarque());
-                j.putExtra("modele",quad.getModele());
-                j.putExtra("prix",quad.getPrix());
-              //  j.putExtra("date",quad.getMiseEnCirculation());
-                j.putExtra("image",quad.getPimage());
+                j.putExtra("id",m.getId());
+                j.putExtra("marque",m.getMarque());
+                j.putExtra("modele",m.getModele());
+                j.putExtra("prix",m.getPrix());
+                j.putExtra("image",m.getPimage());
 
                 context.startActivity(j);
 
@@ -77,7 +75,7 @@ public class myadapter extends FirebaseRecyclerAdapter<Quad,myadapter.myviewhold
                 builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference().child("movie")
+                        FirebaseDatabase.getInstance().getReference().child("Movie")
                                 .child(getRef(position).getKey()).removeValue();
                     }
                 });
@@ -112,7 +110,7 @@ public class myadapter extends FirebaseRecyclerAdapter<Quad,myadapter.myviewhold
         ImageView calendar;
         CircleImageView img;
         ImageView edit,delete;
-        TextView nom,prix,miseencir,modele,date;
+        TextView nom,prix,modele,date;
 
         public myviewholder(@NonNull View itemView)
         {
@@ -121,11 +119,8 @@ public class myadapter extends FirebaseRecyclerAdapter<Quad,myadapter.myviewhold
             nom=(TextView)itemView.findViewById(R.id.nom);
             modele=(TextView)itemView.findViewById(R.id.modele);
             prix=(TextView)itemView.findViewById(R.id.prix);
-          //  miseencir=(TextView)itemView.findViewById(R.id.miseencir);
             edit=(ImageView)itemView.findViewById(R.id.editicon);
             delete=(ImageView)itemView.findViewById(R.id.deleteicon);
-            calendar=(ImageView)itemView.findViewById(R.id.calendar);
-            date = (TextView)itemView.findViewById(R.id.dater);
 
 
 

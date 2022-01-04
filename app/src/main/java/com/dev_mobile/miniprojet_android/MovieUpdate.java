@@ -8,13 +8,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,12 +35,11 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import com.squareup.picasso.Picasso;
 
 import java.io.InputStream;
-import java.util.Calendar;
 import java.util.Random;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ModiferQuad extends AppCompatActivity {
+public class MovieUpdate extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener myDateSetListener;
     ImageView calendar;
     CircleImageView image;
@@ -57,7 +53,7 @@ public class ModiferQuad extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_modifer_quad);
+        setContentView(R.layout.activity_update_movie);
 
         uriimg= Uri.parse(getIntent().getStringExtra("image"));
         uriimg2= Uri.parse(getIntent().getStringExtra("image"));
@@ -67,7 +63,7 @@ public class ModiferQuad extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Dexter.withActivity(ModiferQuad.this)
+                Dexter.withActivity(MovieUpdate.this)
                         .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                         .withListener(new PermissionListener() {
                             @Override
@@ -96,7 +92,7 @@ public class ModiferQuad extends AppCompatActivity {
 
         id =getIntent().getStringExtra("id");
 
-        reference= FirebaseDatabase.getInstance().getReference("quad");
+        reference= FirebaseDatabase.getInstance().getReference("Movie");
 
         nom=findViewById(R.id.nom);
         nom.setText(getIntent().getStringExtra("marque"));
@@ -106,8 +102,6 @@ public class ModiferQuad extends AppCompatActivity {
         prix=findViewById(R.id.prix);
         prix.setText(valueOf(getIntent().getDoubleExtra("prix",0.0)));
 
-      //  date=findViewById(R.id.dater);
-       // date.setText(getIntent().getStringExtra("date"));
 
         img=findViewById(R.id.uimgurl);
         //img.setText(getIntent().getStringExtra("image"));
@@ -198,8 +192,8 @@ public class ModiferQuad extends AppCompatActivity {
                                 dialog.dismiss();
                                 uriimg2=uri;
                                 FirebaseDatabase db=FirebaseDatabase.getInstance();
-                                DatabaseReference root=db.getReference("quad");
-                                Quad q=new Quad(id,nom.getText().toString(),modele.getText().toString(), Double.valueOf(prix.getText().toString()),uriimg2.toString());
+                                DatabaseReference root=db.getReference("Movie");
+                                Movie q=new Movie(id,nom.getText().toString(),modele.getText().toString(), Double.valueOf(prix.getText().toString()),uriimg2.toString());
                                 reference.child(id).setValue(q);
                                 Toast.makeText(getApplicationContext(),"sucess updated ",Toast.LENGTH_LONG).show();
                                 Intent j = new Intent(getApplicationContext(),Accueil.class);
@@ -215,7 +209,7 @@ public class ModiferQuad extends AppCompatActivity {
                     public void onProgress(UploadTask.TaskSnapshot taskSnapshot)
                     {
                         float percent=(100*taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
-                        dialog.setMessage("Téléchargement :"+(int)percent+" %");
+                        dialog.setMessage("upload :"+(int)percent+" %");
                     }
                 });
 

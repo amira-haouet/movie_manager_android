@@ -27,9 +27,9 @@ public class Accueil extends AppCompatActivity {
 
         recview=findViewById(R.id.recview);
         recview.setLayoutManager(new LinearLayoutManager(this));
-        FirebaseRecyclerOptions<Quad> options =
-                new FirebaseRecyclerOptions.Builder<Quad>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("quad"), Quad.class)
+        FirebaseRecyclerOptions<Movie> options =
+                new FirebaseRecyclerOptions.Builder<Movie>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Movie"), Movie.class)
                         .build();
 
         adapter=new myadapter(options,getApplicationContext());
@@ -126,9 +126,9 @@ public class Accueil extends AppCompatActivity {
 
     private void processsearch(String s)
     {
-        FirebaseRecyclerOptions<Quad> options =
-                new FirebaseRecyclerOptions.Builder<Quad>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("quad").orderByChild("marque").startAt(s).endAt(s+"\uf8ff"), Quad.class)
+        FirebaseRecyclerOptions<Movie> options =
+                new FirebaseRecyclerOptions.Builder<Movie>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Movie").orderByChild("marque").startAt(s).endAt(s+"\uf8ff"), Movie.class)
                         .build();
 
         adapter=new myadapter(options,getApplicationContext());
