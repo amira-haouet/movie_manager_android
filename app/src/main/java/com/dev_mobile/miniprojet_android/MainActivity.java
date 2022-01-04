@@ -61,11 +61,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        calendar=(ImageView)findViewById(R.id.calendar);
-        date = findViewById(R.id.dater);
-        Calendar today=Calendar.getInstance();
-        int moi=today.get(Calendar.MONTH)+1;
-        date.setText(today.get(Calendar.DAY_OF_MONTH)+"/"+moi+"/"+today.get(Calendar.YEAR));
+      //  calendar=(ImageView)findViewById(R.id.calendar);
+      //  date = findViewById(R.id.dater);
+   //     Calendar today=Calendar.getInstance();
+    //    int moi=today.get(Calendar.MONTH)+1;
+//        date.setText(today.get(Calendar.DAY_OF_MONTH)+"/"+moi+"/"+today.get(Calendar.YEAR));
         t1=findViewById(R.id.t1);
         t2=findViewById(R.id.t2);
         t3=findViewById(R.id.t3);
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        calendar.setOnClickListener(new View.OnClickListener() {
+      /*  calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                 String date2 = dayOfMonth + "/" + month + "/" + year;
                 date.setText(date2);
             }
-        };
+        };*/
         annuler=findViewById(R.id.annuler);
         annuler.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
                                 FirebaseDatabase db=FirebaseDatabase.getInstance();
                                 DatabaseReference root=db.getReference("quad");
                                 String _id = root .push().getKey();
-                                Quad q=new Quad(_id,t1.getText().toString(),t3.getText().toString(),valueOf(t2.getText().toString()),date.getText().toString(),uri.toString());
+                                Quad q=new Quad(_id,t1.getText().toString(),t3.getText().toString(),valueOf(t2.getText().toString()),uri.toString());
                                 root.child(_id).setValue(q);
 
 

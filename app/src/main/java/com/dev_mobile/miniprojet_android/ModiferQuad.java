@@ -199,7 +199,7 @@ public class ModiferQuad extends AppCompatActivity {
                                 uriimg2=uri;
                                 FirebaseDatabase db=FirebaseDatabase.getInstance();
                                 DatabaseReference root=db.getReference("quad");
-                                Quad q=new Quad(id,nom.getText().toString(),modele.getText().toString(), Double.valueOf(prix.getText().toString()),date.getText().toString(),uriimg2.toString());
+                                Quad q=new Quad(id,nom.getText().toString(),modele.getText().toString(), Double.valueOf(prix.getText().toString()),uriimg2.toString());
                                 reference.child(id).setValue(q);
                                 Toast.makeText(getApplicationContext(),"Quad modifié avec succès",Toast.LENGTH_LONG).show();
                                 Intent j = new Intent(getApplicationContext(),Accueil.class);

@@ -14,7 +14,7 @@ public class Quad {
 
 
 
-    public Quad(String id, String marque, String modele, Double prix, String MiseEnCirculation,String pimage) {
+    public Quad(String id, String marque, String modele, Double prix,String pimage) {
         this.id = id;
         this.marque= marque;
         this.modele= modele;

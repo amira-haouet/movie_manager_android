@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/t1"
         android:textSize="15sp"
-        android:hint="Marque"
+        android:hint="movie title"
         android:layout_marginTop="30dp"
         android:textColor="#000"/>
     <EditText
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/t3"
         android:textSize="15sp"
-        android:hint="Modèle"
+        android:hint="genre"
         android:layout_marginTop="30dp"
         android:textColor="#000"/>
 
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/t2"
         android:textSize="15sp"
-        android:hint="Prix"
+        android:hint="Prix ticket"
         android:layout_marginTop="30dp"
         android:textColor="#000"/>
 
@@ -72,7 +72,7 @@
         android:textSize="15dp"
         android:layout_marginLeft="-46dp"
         android:textStyle="bold"/>
-
+<!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
     </LinearLayout>
 
 
-
+-->
 
     <Button
         android:layout_width="wrap_content"
