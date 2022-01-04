@@ -13,14 +13,14 @@
         android:title="settings"
         app:showAsAction="ifRoom" >
  <menu>
-    <item android:title="Ajouter quad" android:id="@+id/ajouter"
+    <item android:title="add movie" android:id="@+id/ajouter"
         android:icon="@drawable/ic_baseline_add_24"
         android:textStyle="bold">
 
     </item>
-    <item android:textStyle="bold" android:icon="@drawable/ic_baseline_location_on_24" android:title="Ma position actuelle" android:id="@+id/map"
+    <item android:textStyle="bold" android:icon="@drawable/ic_baseline_location_on_24" android:title="my position" android:id="@+id/map"
         ></item>
-    <item android:textStyle="bold" android:icon="@drawable/ic_baseline_exit_to_app_24" android:title="Se déconnecter" android:id="@+id/quite"></item>
+    <item android:textStyle="bold" android:icon="@drawable/ic_baseline_exit_to_app_24" android:title="log out" android:id="@+id/quite"></item>
 </menu>
     </item>
 </menu>

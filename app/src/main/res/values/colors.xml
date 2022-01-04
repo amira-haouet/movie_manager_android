@@ -9,9 +9,10 @@
     <color name="gris">#BFC1BF</color>
 <color name="purple">#771ECF</color>
     <color name="pistache">#C599F1</color>
-
+<color name="green">#236714</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#009688</color>
     <color name="bordercolor">#2196F3</color>
     <color name="btnbgcolor">#FF9800</color>
+    <color name="red">#C63333</color>
 </resources>

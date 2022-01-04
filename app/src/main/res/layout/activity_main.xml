@@ -27,8 +27,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/browse"
             android:layout_marginTop="20dp"
-            android:text="Choisir"
-            android:textColor="@color/black"
+            android:text="Upload your image"
+            android:textColor="@color/white"
             android:background="@drawable/design"
 
             />
@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:id="@+id/add_submit"
-        android:background="@drawable/design"
+        android:background="@color/green"
         android:onClick="uploadtofirebase"
         android:textColor="@color/black"
         android:text="Ajouter"
@@ -118,7 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="-48dp"
         android:id="@+id/annuler"
-        android:background="@drawable/design"
+        android:background="@color/red"
         android:onClick="process"
         android:textColor="@color/black"
         android:text="Annuler"
